@@ -1,0 +1,24 @@
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "" # the name of your site, e.g. ACME Corp.
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  people:
+    output: false
+
+jekyll_compose:
+  default_front_matter:
+    drafts:
+      description:
+      image:
+      category:
+      tags:
+    posts:
+      description:
+      image:
+      category:
+      tags:
+      published: false
+      sitemap: false

@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "The Protest",
+      "url": "/"
+    },
+    {
+      "title": "Latest",
+      "url": "/latest"
+    },
+    {
+      "title": "Timeline",
+      "url": "/timeline"
+    },
+    {
+      "title": "Photos & Videos",
+      "url": "/media"
+    },
+    {
+      "title": "Casualties",
+      "url": "/casualties"
+    },
+    {
+      "title": "Organize",
+      "url": "/organize"
+    }
+  ]
+}
