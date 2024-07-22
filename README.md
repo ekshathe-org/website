@@ -5,13 +5,14 @@
 # Development:
 
 - Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-- Download the Google Sheets and convert them into JSON
 - `gem install bundler jekyll jekyll-compose`
 - `jekyll serve --watch`
 
 # Data:
 
 - Data is managed by Google Sheets and converted manually to JSON. Assets(images and videos) are uploaded manually to Cloudflare R2.
+- Download the Google Sheets and convert them into JSON (`converter`)
+- File syncing is done via `rclone` (drive to r2)
 
 # Deployment:
 
@@ -22,5 +23,7 @@
 # TODO:
 
 - [ ] Setup CI/CD with Github Actions
-- [ ] Develop a basic community management platform for connecting local and expat Bangladeshi's
-- [ ] Replace Google Sheets and generate the JSON from a database (TBD)
+- [ ] Sync Google Drive with Cloudflare R2
+- [ ] Develop a backend to support file uploads to R2 (i.e. cloudflare workers)
+- [ ] Stream updates to the users in real time for latest news (i.e. ReadableStream)
+- [ ] Replace Google Sheets and build a proper backend
