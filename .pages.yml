@@ -14,29 +14,8 @@ content:
           name: categories,
           label: Categories,
           type: select,
-          options: { values: ["misc", "junk"] },
+          options: { values: ["opinion", "news", "column"] },
         }
       - { name: author, label: Authors, type: string, list: true }
       - { name: meta, label: Meta, type: string }
       - { name: body, label: Body, type: rich-text }
-  - name: config
-    label: Jekyll config
-    type: file
-    path: _config.yml
-    fields:
-      - { name: title, label: Title, type: string, required: true }
-      - name: author
-        label: Author
-        type: object
-        fields:
-          - { name: name, label: Name, type: string }
-          - {
-              name: email,
-              label: Email,
-              type: string,
-              pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-            }
-      - { name: description, label: Description, type: string }
-      - { name: theme, label: Theme, type: string }
-      - { name: plugins, label: Plugins, type: string, list: true }
-      - { name: header_pages, label: Header pages, type: string, list: true }
