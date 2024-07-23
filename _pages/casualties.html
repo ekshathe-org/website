@@ -4,3 +4,11 @@ title: "Casualties"
 ---
 
 <h1>Casualties</h1>
+
+<ul>
+  {% for person in site.data.casualties %}
+  <li>
+    <a href="{{person.name | slugify}}"> {{ person.name }} </a>
+  </li>
+  {% endfor %}
+</ul>
