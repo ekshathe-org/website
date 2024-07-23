@@ -8,6 +8,30 @@ collections:
   people:
     output: false
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-datapage-generator
+  - jekyll-spaceship
+
+page_gen-dirs: true
+
+page_gen:
+  - data: "casualties"
+    template: "person"
+    dir: "casualties"
+    index_files: true
+    name: "name"
+    # name_expr:
+    #   [a Ruby expression to generate the filename (alternative to name)]
+    title: "name"
+    # title_expr:
+    #   [a Ruby expression to generate the filename (alternative to title)]
+    # extension: [extension used to generate the filename]
+    # filter: [property to filter data records by]
+    # filter_condition: "record['complete'] == true"
+    # page_data_prefix: [prefix used to name variables]
+    # debug: [boolean, if true output more informative messages]
+
 jekyll_compose:
   default_front_matter:
     drafts:
