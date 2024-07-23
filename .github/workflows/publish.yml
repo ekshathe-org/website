@@ -1,7 +1,7 @@
 name: Deploy ekshathe
 on: [push, workflow_dispatch]
 jobs:
-  getdata:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo's default branch
@@ -32,10 +32,10 @@ jobs:
           projectName: ekshathe
           directory: _sites
           # Optional: Enable this if you want to have GitHub Deployments triggered
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          branch: main
+          # branch: main
           # Optional: Change the working directory
           # workingDirectory: my-site
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
