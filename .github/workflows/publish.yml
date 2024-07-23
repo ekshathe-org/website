@@ -9,21 +9,22 @@ jobs:
         with:
           submodules: true
       - name: Setup Node
-        working-directory: ./converter
         uses: actions/setup-node@v4
         with:
           node-version: 20.11.x
           cache: npm
-      # - name: Generate data
-      #   working-directory: ./converter
-      #   run: npm run convert
-      # - name: Setup Ruby
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: "3.3" # Not needed with a .ruby-version file
-      #     bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      # - name: Build site
-      #   run: jekyll build
+      - name: Generate data
+        run: |
+          cd converter
+          npm install
+          npm run convert
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3" # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Build site
+        run: jekyll build
       # - name: Publish to Cloudflare Pages
       #   uses: cloudflare/pages-action@v1
       #   with:
