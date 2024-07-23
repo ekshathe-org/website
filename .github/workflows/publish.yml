@@ -28,7 +28,7 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: YOUR_ACCOUNT_ID
+          accountId: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
           projectName: ekshathe
           directory: _sites
           # Optional: Enable this if you want to have GitHub Deployments triggered
