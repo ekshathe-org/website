@@ -19,7 +19,7 @@ jobs:
       - name: Check out repo's default branch
         uses: actions/checkout@v4
         with:
-          - submodules: true
+          submodules: true
       - name: Setup Node
         working-directory: ./converter
         uses: actions/setup-node@v4
