@@ -23,20 +23,20 @@ jobs:
           ruby-version: "3.3" # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Build site
-        run: jekyll build
-      # - name: Publish to Cloudflare Pages
-      #   uses: cloudflare/pages-action@v1
-      #   with:
-      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      #     accountId: YOUR_ACCOUNT_ID
-      #     projectName: ekshathe
-      #     directory: _sites
-      #     # Optional: Enable this if you want to have GitHub Deployments triggered
-      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-      #     # Optional: Switch what branch you are publishing to.
-      #     # By default this will be the branch which triggered this workflow
-      #     branch: main
-      #     # Optional: Change the working directory
-      #     # workingDirectory: my-site
-      #     # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-      #     wranglerVersion: "3"
+        run: bundle exec jekyll build
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: YOUR_ACCOUNT_ID
+          projectName: ekshathe
+          directory: _sites
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Switch what branch you are publishing to.
+          # By default this will be the branch which triggered this workflow
+          branch: main
+          # Optional: Change the working directory
+          # workingDirectory: my-site
+          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+          wranglerVersion: "3"
