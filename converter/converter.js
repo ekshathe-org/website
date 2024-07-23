@@ -1,39 +1,88 @@
 import fs from "node:fs";
+import process from "node:process";
 import path from "node:path";
+import { writeFile } from "node:fs/promises";
+import { Readable } from "node:stream";
 import { parse } from "csv/sync";
-import config from "../datasource.json" assert { type: "json" };
 import { parse as dateParse } from "date-fns";
 // import xlsx from "node-xlsx";
-import excel from "exceljs";
+// import excel from "exceljs";
 
-const SOURCE_DIR = "../datasource/";
+const SOURCE_DIR = "datasource/";
 const DEST_DIR = "../_data/";
 
+const config = [
+  {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTQY-R1AniodcMLxEDS1KyLOhxfgK3WxFAtifwPWAc28Vsi1j6Am9o9J2sZBMzpfFaEy59TkV0QDokm/pub?gid=0&single=true&output=csv",
+    name: "casualties",
+    output: "casualties.json",
+    process(i) {
+      if (i.date) {
+        i.date = dateParse(i.date, "M/dd/yyyy", new Date());
+      }
+      return i;
+    },
+  },
+  {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQKKqy1UquMH0eRBtQd5fd_I5PQBClk_oHhAiaDBdMejX0BGrIYczUatme44ranWXNtm2UMtTKbizS_/pub?gid=747837065&single=true&output=csv",
+    name: "media",
+    output: "media.json",
+    process(i) {
+      return i;
+    },
+  },
+  {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRI2Cu0M6kt_04FkrcyZZPGMYkVLHIgq56PboP-6gWzLzFI7kk1Ko3W81V_fUhQ8Xi2FmIf1QTfGHgn/pub?gid=0&single=true&output=csv",
+    name: "timeline",
+    output: "timeline.json",
+    process(i) {
+      return i;
+    },
+  },
+];
+
+async function downloadData() {
+  const options = {};
+  for (const source of config) {
+    const response = await fetch(source.url);
+    const dest = path.join(
+      import.meta.dirname,
+      SOURCE_DIR,
+      source.name + ".csv",
+    );
+    const body = Readable.fromWeb(response.body);
+    await writeFile(dest, body);
+  }
+}
+
 function csvConvert() {
-  const files = fs.readdirSync(SOURCE_DIR).filter((i) => i.endsWith("csv"));
-  const destination = files
-    .map((i) => i.split(".")[0] + ".json")
-    .map((i) => path.join(DEST_DIR, i));
+  const files = fs
+    .readdirSync(SOURCE_DIR)
+    .filter((i) => i.endsWith("csv"))
+    .map((i) => i.split(".")[0]);
 
-  const filepaths = files.map((i) => path.join(SOURCE_DIR, i));
+  files.forEach((file, index) => {
+    const source = path.join(SOURCE_DIR, file + ".csv");
+    const destination = path.join(DEST_DIR, file + ".json");
 
-  filepaths.forEach((file, index) => {
-    const f = fs.readFileSync(file, { encoding: "utf-8" });
+    const f = fs.readFileSync(source, { encoding: "utf-8" });
     const result = parse(f, { columns: true });
+    const cc = config.find((i) => i.name == file);
+    const data = result.map((i) => cc.process(i));
     try {
-      fs.writeFileSync(
-        destination[index],
-        JSON.stringify(result, null, 2),
-        "utf8",
-      );
+      fs.writeFileSync(destination, JSON.stringify(data, null, 2), "utf8");
       console.log("Data successfully saved to disk");
     } catch (error) {
       console.log("An error has occurred ", error);
     }
   });
+  process.exit(0);
 }
 
-xlConvert();
+downloadData();
+csvConvert();
+
+// UNUSED
 
 function inspect(object) {
   const isGetter = (x, name) =>
