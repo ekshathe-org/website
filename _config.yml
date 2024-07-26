@@ -19,8 +19,8 @@ page_gen:
   - data: "casualties"
     template: "person"
     dir: "casualties"
-    index_files: true
     name: "name"
+    index_files: "true"
     # name_expr:
     #   [a Ruby expression to generate the filename (alternative to name)]
     title: "name"

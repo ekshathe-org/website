@@ -8,7 +8,7 @@ title: "Casualties"
 <ul>
   {% for person in site.data.casualties %}
   <li>
-    <a href="{{person.name | slugify}}"> {{ person.name }} </a>
+    <a href="/casualties/{{person.name | slugify}}"> {{ person.name }} </a>
   </li>
   {% endfor %}
 </ul>
