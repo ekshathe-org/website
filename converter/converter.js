@@ -39,11 +39,20 @@ const config = [
       return i;
     },
   },
+  {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vStUAzgDyyw1PabWAS7FYsbgHSfRGCvr6MR6svchzBu3NjAm0AClijUjlDIBrP6MLZdXr7m-5cxVLYY/pub?gid=1883226421&single=true&output=csv",
+    name: "detainees",
+    output: "detainees.json",
+    process(i) {
+      return i;
+    },
+  },
 ];
 
 async function downloadData() {
   const options = {};
   for (const source of config) {
+    console.log(`downloading: ${source.name}`);
     const response = await fetch(source.url);
     const dest = path.join(
       import.meta.dirname,
@@ -53,6 +62,7 @@ async function downloadData() {
     const body = Readable.fromWeb(response.body);
     await writeFile(dest, body);
   }
+  return Promise.resolve();
 }
 
 function csvConvert() {
@@ -79,7 +89,7 @@ function csvConvert() {
   process.exit(0);
 }
 
-downloadData();
+await downloadData();
 csvConvert();
 
 // UNUSED
