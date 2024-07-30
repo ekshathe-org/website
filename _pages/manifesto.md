@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Photos and Videos"
+title: "Manifesto"
 ---
 
 # The Bangladesh Manifesto
