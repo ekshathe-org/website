@@ -1,10 +1,14 @@
 url: "https://ekshathe.org" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "Ekshathe" # the name of your site, e.g. ACME Corp.
+collections_dir: collections
 collections:
   pages:
     output: true
     permalink: /:name
+  # timeline:
+  #   output: true
+  #   permalink: /timeline/:name
   # people:
   #   output: false
 
