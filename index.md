@@ -31,15 +31,17 @@ title: "The Protest"
     <img src="/assets/images/home/01_20240716_dhaka_university.jpeg" alt="Dhaka University, 16 July 2024" fetchpriority="high" loading="eager">
 </section>
 
-### 209 lives lost
+### 211 lives lost
 
 ### ~2,000 maimed, shot and injured
 
-### ~10,000 detained without trial
+### ~15,000 students detained without trial
 
 ---
 
-July 15, 2024 onwards, the government of Bangladesh launched a brutal campaign of quashing student protest demanding merit based hiring by indiscriminately firing at unarmed protesters. This website is an attempt to document the events, the timeline and photos and videos of the continued repression on the civilians by the government forces.
+> July 15, 2024 onwards, the government of Bangladesh launched a brutal campaign of quashing student protest demanding merit based jobs by indiscriminately firing at unarmed protesters for days. The security forces used shotgun and automatic weapon to shoot at protesters at point blank range.
+
+> Bangladesh is now under curfew and there are boots on the ground. The Gestapo, DGFI and Detective Branch, has locked up over fifteen thousand demonstrators for alleged disorderly conduct and disrupting peace.
 
 ---
 
@@ -52,4 +54,5 @@ July 15, 2024 onwards, the government of Bangladesh launched a brutal campaign o
 - [New York Times: Carnage on Bangladesh](https://www.nytimes.com/2024/07/23/world/asia/bangladesh-protests-sheikh-hasina.html){:target="\_blank"}
 
 - [BBC: Drenched in blood](https://www.bbc.com/news/articles/c4ng5v03gd4o){:target="\_blank"}
-  <
+
+- [BBC: Video reveals brutality during Bangladesh protests](https://www.bbc.com/news/articles/c720lzejzwpo){:target="\_blank"}

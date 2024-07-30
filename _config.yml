@@ -1,12 +1,12 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ekshathe.org" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "" # the name of your site, e.g. ACME Corp.
+title: "Ekshathe" # the name of your site, e.g. ACME Corp.
 collections:
   pages:
     output: true
     permalink: /:name
-  people:
-    output: false
+  # people:
+  #   output: false
 
 plugins:
   - jekyll-seo-tag
@@ -21,16 +21,7 @@ page_gen:
     dir: "casualties"
     name: "name"
     index_files: "true"
-    # name_expr:
-    #   [a Ruby expression to generate the filename (alternative to name)]
     title: "name"
-    # title_expr:
-    #   [a Ruby expression to generate the filename (alternative to title)]
-    # extension: [extension used to generate the filename]
-    # filter: [property to filter data records by]
-    # filter_condition: "record['complete'] == true"
-    # page_data_prefix: [prefix used to name variables]
-    # debug: [boolean, if true output more informative messages]
 
 jekyll_compose:
   default_front_matter:
