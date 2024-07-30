@@ -1,6 +1,7 @@
 <nav class="nav">
   <ul>
-    {% for item in site.data.nav.items %}
+   {% assign items = site.data.nav.items | where: 'publish', 'true' %}
+    {% for item in items | where: 'publish', 'true' %}
     <li>
       <a href="{{ item.url }}">{{ item.title }}</a>
     </li>

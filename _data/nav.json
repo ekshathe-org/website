@@ -2,27 +2,48 @@
   "items": [
     {
       "title": "The Protest",
-      "url": "/"
-    },
-    {
-      "title": "Latest",
-      "url": "/latest"
+      "url": "/",
+      "publish": true
     },
     {
       "title": "Timeline",
-      "url": "/timeline"
+      "url": "/timeline",
+      "publish": true
     },
     {
       "title": "Media",
-      "url": "/media"
+      "url": "/media",
+      "publish": true
+    },
+    {
+      "title": "Press",
+      "url": "/press",
+      "publish": false
     },
     {
       "title": "Casualties",
-      "url": "/casualties"
+      "url": "/casualties",
+      "publish": true
+    },
+    {
+      "title": "Detained",
+      "url": "/detained",
+      "publish": true
+    },
+    {
+      "title": "Understand",
+      "url": "/understand",
+      "publish": false
+    },
+    {
+      "title": "Manifesto",
+      "url": "/manifesto",
+      "publish": false
     },
     {
       "title": "Organize",
-      "url": "/organize"
+      "url": "/organize",
+      "publish": true
     }
   ]
 }
